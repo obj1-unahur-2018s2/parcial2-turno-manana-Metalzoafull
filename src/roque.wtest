@@ -1,0 +1,28 @@
+import mutal.*
+import Socio.*
+describe"prueba de roque"{
+	var roque = new Socio()
+	var ana = new Socio()
+	var playa1 = new Viajes_playa()
+	var playa2 = new Viajes_playa()
+	var gym = new Gimnasia()
+	fixture{
+		roque.maximoActividad(2)
+		roque.aderirActividad(playa1)
+		roque.aderirActividad(playa2)
+		ana.maximoActividad(3)
+		ana.aderirActividad(playa1)
+		ana.aderirActividad(playa2)
+		ana.aderirActividad(gym)
+		playa1.largoPlaya(1000)
+		playa2.largoPlaya(2000)
+	}
+	test"probando a roque"{
+		assert.that(roque.adorarorSol())
+		assert.equals([playa2],roque.actividadEsforzada())
+		assert.throwsExceptionWithMessage("superaste el cupo de actividades",{roque.aderirActividad(gym)})
+		assert.notThat(ana.adorarorSol())
+		assert.equals([playa2,gym],ana.actividadEsforzada())
+	}
+	
+}

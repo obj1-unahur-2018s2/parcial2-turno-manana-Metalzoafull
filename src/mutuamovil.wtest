@@ -1,0 +1,37 @@
+import mutal.*
+import Socio.*
+
+describe "agregamos las variables"{
+	var normal = new Excurcion_ciudad()
+	var tropi = new Excuciones_tropical()
+	var normal2 = new Excurcion_ciudad()
+	var tropi2 = new Excuciones_tropical()
+	var tropi3 = new Excuciones_tropical()
+	fixture{
+		normal.atracciones(4)
+		tropi.atracciones(4)
+		normal2.atracciones(8)
+		tropi2.atracciones(8)
+		tropi3.atracciones(10)
+	}
+	test"escurciones"{
+		assert.equals(2,normal.actividadDias())
+		assert.notThat(normal.implicaEsfuerzo())
+		assert.notThat(normal.broncearse())
+		assert.equals(3,tropi.actividadDias())
+		assert.notThat(tropi.implicaEsfuerzo())
+		assert.that(tropi.broncearse())
+		assert.equals(5,tropi2.actividadDias())
+		assert.that(tropi2.implicaEsfuerzo())
+		assert.that(tropi2.broncearse())
+		assert.equals(6,tropi3.actividadDias())
+		assert.notThat(tropi3.implicaEsfuerzo())
+		assert.that(tropi3.broncearse())
+		assert.equals(4,normal2.actividadDias())
+		assert.that(normal2.implicaEsfuerzo())
+		assert.notThat(normal2.broncearse())
+	}
+}
+
+
+

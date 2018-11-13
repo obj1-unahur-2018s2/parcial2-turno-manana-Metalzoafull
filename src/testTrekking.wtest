@@ -1,0 +1,26 @@
+import mutal.*
+import Socio.*
+describe"holis"{
+	var salida1 = new Trekking()
+	var salida2 = new Trekking()
+	var salida3 = new Trekking()
+	fixture	{
+		salida1.kilometros(100)
+		salida1.solAnio(130)
+		salida2.kilometros(50)
+		salida2.solAnio(240)
+		salida3.kilometros(250)
+		salida3.solAnio(130)
+	}
+	test"hola"{
+		assert.equals(2,salida1.actividadDias())
+		assert.that(salida1.implicaEsfuerzo())
+		assert.notThat(salida1.broncearse())
+		assert.equals(1,salida2.actividadDias())
+		assert.notThat(salida2.implicaEsfuerzo())
+		assert.that(salida2.broncearse())
+		assert.equals(5,salida3.actividadDias())
+		assert.that(salida3.implicaEsfuerzo())
+		assert.that(salida3.broncearse())
+	}
+}
